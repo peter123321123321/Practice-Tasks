@@ -24,8 +24,8 @@ def main_function():
 
 
 def drop_off():
-    dog_name = str(input("Would you like to drop off a dog(Y/N): ")).upper()
-    if dog_name == "Y":
+    confirm = str(input("Would you like to drop off a dog(Y/N): ")).upper()
+    if confirm == "Y":
         dog_name = str(input("What is your dogs name: "))
         dog_list.append(dog_name)
         print(f"{dog_name} has been added to the list")
