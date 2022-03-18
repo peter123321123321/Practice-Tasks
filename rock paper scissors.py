@@ -8,20 +8,21 @@ class Action(IntEnum):
     paper = 1
     scissors = 2
 
-
+# asks for users input and then makes it an action returns
 def user_selection():
     selection = int(input("Enter an Action(Rock[0], Paper[1] Scissors[2]): "))
     action = Action(selection)
     return action
 
 
+# asks for computers input and then makes it an action returns
 def computer_selection():
     selection = random.randint(0, len(Action) - 1)
     action = Action(selection)
     return action
 
 
-# compare
+# compare actions and print different words based on users and computers input
 def find_winner(user_action, computer_action):
     if user_action == computer_action:
         print("You tied!")
@@ -42,6 +43,7 @@ def find_winner(user_action, computer_action):
             print("Scissors cuts Paper, You win!")
 
 
+# If user selection is not a valid number prints invalid selection asks user to play again if tes loops back to start if no exits program
 while True:
     try:
         user_action = user_selection()
