@@ -1,9 +1,6 @@
-from sys import exit
-
-
 def main_program():
-    choice = 0
-    while choice != 3:
+    user_choice = 0
+    while user_choice != 3:
         print("<============================================>")
         print("Welcome to Kidz Fun")
         print("Please select one of the options below")
@@ -11,30 +8,30 @@ def main_program():
         print("Sign up for Fun in the Sun[1] ")
         print("Sign up for Active_kidz[2] ")
         print("Exit program[3] ")
-        print("See kidz currently signed up for Kidz Fun[X] ")
         print("<============================================>")
         user_choice = int(input("Enter your choice(1, 2, 3, 4): "))
         if user_choice == 1:
             fun_in_the_sun()
-        if user_choice == 2:
+        elif user_choice == 2:
             active_kidz()
-        if user_choice == 3:
+        elif user_choice == 3:
             print("Thanks for using Kidz Fun")
             exit()
-        if user_choice == "4":
-            active_kidz_list
+        else:
+            print("Please enter valid number.")
+            main_program()
 
 
 def fun_in_the_sun():
-    confirm = str(input("Confirm your choice(Y/N): "))
+    confirm = str(input("Would you like to register for fun in the sun(Y/N): "))
     if confirm.upper() == "Y":
         print("Choice confirmed")
         age = float(input("What is your age: "))
-        if 5 < age < 15:
-            print("Your child is eligible for participation in Active Kidz")
-            active_kidz_list.append(age)
+        if 4 < age < 16:
+            print("Your child is eligible for participation in fun in the sun")
+            fun_in_the_sun_list.append(age)
         else:
-            print("Your child is not eligible for participation in Active Kidz")
+            print("Your child is not eligible for participation in fun in the sun")
     else:
         print("Choice confirmed")
         main_program()
@@ -45,7 +42,7 @@ def active_kidz():
     if confirm.upper() == "Y":
         print("Choice confirmed")
         age = float(input("What is your age: "))
-        if 5 < age < 15:
+        if 4 < age < 16:
             print("Your child is eligible for participation in Active Kidz")
             active_kidz_list.append(age)
         else:
@@ -54,8 +51,22 @@ def active_kidz():
         print("Choice confirmed")
         main_program()
 
-def kids_in_program():
-    print(f"{fun_in_the_sun_list}")
+
+def exit():
+    confirm = str(input("Would you like to leave the program?")).upper()
+    if confirm == "Y":
+        if len(fun_in_the_sun_list) == 0:
+            print("No kids have been registered for Fun in the Sun")
+        else:
+            print(f"In the Fun in the Sun program the sum of all ages is {sum(fun_in_the_sun_list)} ")
+            print(f"In the Fun in the Sun program the average of all ages is {sum(fun_in_the_sun_list)/len(fun_in_the_sun_list)}")
+        if len(active_kidz_list) == 0:
+            print("No kids have been registered for Fun in the Sun")
+        else:
+            print(f"In the Active Kidz program the sum of all ages is {sum(active_kidz_list)} ")
+            print(f"In the Active Kidz program the average of all ages is {sum(active_kidz_list)/len(active_kidz_list)}")
+    else:
+        main_program()
 
 # Main Routine
 fun_in_the_sun_list = []
